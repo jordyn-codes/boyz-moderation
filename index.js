@@ -43,9 +43,10 @@ client.on('interactionCreate', interaction => {
 })
 client.on('guildMemberAdd', member => {
   require('./core/logging/onJoin.js')(member)
-  require('./core/logging/analytics.js')(member, 'add')
 })
 client.on('guildMemberRemove', member => {
-  require('./core/logging/analytics.js')(member, 'leave')
+  require('./core/logging/onLeave.js')(member)
 })
+
+
 client.login(process.env.token)
