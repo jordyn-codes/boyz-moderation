@@ -12,6 +12,27 @@ module.exports = async function(interaction){
     interaction.reply({content: emojis.error + ' This command has been disabled!'})
     return
   }
+
+  //Check for blacklists
+  let bl = await require('./../../functions/check-bl.js')({
+    user: interaction.user.id,
+    channel: interaction.channel.id,
+    roles: await interaction.member.roles.cache,
+    command: command
+  })
+  if(bl === null){
+    interaction.reply({content: emojis.error + ' Oops, an unexpected error has occured. Please try again later.', ephemeral: true})
+    return
+  }
+  if(bl.status === false){
+    if(bl.reason === 1){
+      interaction.reply({content: emojis.error + ' You are not allowed to use this command in this channel!', ephemeral: true})
+    } else {
+      interaction.reply({content: emojis.error + " You are not allowed to use this command!", ephemeral: true})    
+    }
+  
+    return
+  }
   
   //Check for cooldown and return error if it is
   if(cooldown.has(interaction.user.id)){

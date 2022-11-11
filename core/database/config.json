@@ -2,13 +2,25 @@
   "ownerId": null,
   "commands": {
     "source-code": {
-      "disable": false
+      "disable": false,
+      "blacklists": {
+        "channels": [
+          "1029070135824232538"
+        ],
+        "roles": [],
+        "users": []
+      }
     },
     "warn": {
       "disable": false,
       "forceNotify": false,
       "channel": "1029099924551372870",
-      "webhookId": "1038992658368049263"
+      "webhookId": "1038992658368049263",
+      "blacklists": {
+        "channels": [],
+        "roles": [],
+        "users": []
+      }
     }
   },
   "colors": {
