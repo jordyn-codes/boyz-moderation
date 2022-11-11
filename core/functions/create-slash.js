@@ -41,6 +41,15 @@ async function SetSlashCommands(){
   .addBooleanOption(option => 
     option.setName('dm')
     .setDescription('Message the user about the warning.'))
-    
-  return [source, warn]
+
+  const purge = new SlashCommandBuilder()
+  .setName('purge')
+  .setDescription('Mass-delete messages in the current, or specific server.')
+  .setIntegerOption(option=> 
+    option.setName('amount')
+    .setDescription('Amount of messages')
+    .setRequired(true)   
+  )
+  
+  return [source, warn, purge]
 }

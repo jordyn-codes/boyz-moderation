@@ -1,47 +1,26 @@
 {
-  "630866537909190667": {
-    "warnings": []
-  },
-  "1039649266597105714": {
-    "warnings": []
-  },
   "1028786962116661319": {
-    "warnings": []
+    "ban": {
+      "bannedUntil": null,
+      "reason": null,
+      "moderator": null
+    },
+    "cases": []
   },
-  "1011873898817650828": {
-    "warnings": []
-  },
-  "1035335725899591720": {
-    "warnings": []
-  },
-  "558690088486305794": {
-    "warnings": []
-  },
-  "213786645365784576": {
-    "warnings": []
-  },
-  "1040185440206061568": {
-    "warnings": []
-  },
-  "1021163323997311097": {
-    "warnings": []
-  },
-  "885681687252586586": {
-    "warnings": []
-  },
-  "700917211161821274": {
-    "warnings": []
-  },
-  "1005205630589603941": {
-    "warnings": []
-  },
-  "767811371538186342": {
-    "warnings": []
-  },
-  "427637194262577154": {
-    "warnings": []
-  },
-  "537886329262833695": {
-    "warnings": []
-  }
+  "1028786962116661319.cases": [
+    {
+      "timestamp": 1668148823,
+      "action": "Warning",
+      "reason": "this is testing",
+      "moderator": "1028786962116661319",
+      "expiration": null
+    },
+    {
+      "timestamp": 1668148838,
+      "action": "Warning",
+      "reason": "this is another test",
+      "moderator": "1028786962116661319",
+      "expiration": null
+    }
+  ]
 }

@@ -1,12 +1,11 @@
 {
   "ownerId": null,
+  "case": 4,
   "commands": {
     "source-code": {
       "disable": false,
       "blacklists": {
-        "channels": [
-          "1029070135824232538"
-        ],
+        "channels": [],
         "roles": [],
         "users": []
       }
@@ -14,8 +13,8 @@
     "warn": {
       "disable": false,
       "forceNotify": false,
-      "channel": "1029099924551372870",
-      "webhookId": "1038992658368049263",
+      "defaultNotify": true,
+      "loggingChannel": "1029099924551372870",
       "blacklists": {
         "channels": [],
         "roles": [],
@@ -24,8 +23,16 @@
     }
   },
   "colors": {
-    "main.theme": "#B0A989",
-    "main.error": null,
-    "warn.modlogs": null
+    "moderation": {
+      "warn": "ffffba",
+      "timeout": "FFEDBA",
+      "kick": "F98C5F",
+      "softban": "ffb3ba",
+      "tempban": "ffb3ba",
+      "ban": "ffb3ba",
+      "purge": null
+    },
+    "sourcecode": "57EC5B",
+    "welcome": "57C6EC"
   }
 }

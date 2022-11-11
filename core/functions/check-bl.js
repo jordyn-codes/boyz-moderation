@@ -5,7 +5,11 @@ module.exports = async function(data){
   let command = data.command //Config
   let blacklists = command.blacklists
     
-  if(!user||!channel||!roles||!command) return null
+  if(!user||!channel||!roles||!command){
+    console.log(chalk.blue('[BLACKLISTING] [HUB]'), ' Could not find one of the required fields')
+    return null
+  }
+  
   if(blacklists.users.find(a => a === user)) return {
     status: false,
     reason: null
@@ -16,6 +20,10 @@ module.exports = async function(data){
   }
 
   if(blacklists.roles[0]) return console.log(chalk.blue("[BL] Role blacklisting has been disabled until further updates."))
+  
+  return {
+    status: true
+  }
   /* 
   null - Incomplete
   false - Blacklisted

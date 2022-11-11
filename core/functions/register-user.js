@@ -9,6 +9,11 @@ module.exports = function(user){
   if(userdata) return userdata
 
   users.set(user.id, {
-    warnings: []
+    ban: {
+      bannedUntil: null,
+      reason: null,
+      moderator: null
+    },
+    cases: []
   })
 }

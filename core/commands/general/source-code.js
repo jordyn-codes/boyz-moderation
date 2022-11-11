@@ -1,11 +1,12 @@
 let {EmbedBuilder} = require('discord.js')
 
+//Define the cooldown set and the msg variable (for later use)
 let cooldown = new Set()
 var msg = null
 
 module.exports = async function(interaction){
-  let config = require('./../../database/config.json')
-  let command = config.commands["source-code"]
+  let config = new database('./core/database/config.json')
+  let command = config.get('commands.source-code')
 
   //Check if the command has been disabled
   if(command.disable === true){
@@ -51,7 +52,6 @@ module.exports = async function(interaction){
   //Define the embed and stuff
   let sourceEmbed = new EmbedBuilder()
   .setAuthor({name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL({dynamic: true})})
-  .setColor('F0ED5B')
   .setTitle('Code for `Boy\'s Moderation`')
   .setDescription(`This bot is opened sourced to allow you to view the code and ensure that the bot is not malicious. You may also fork the code and modify it (please modify it - if you do not then credit the original code)
   

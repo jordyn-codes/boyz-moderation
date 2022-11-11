@@ -5,7 +5,7 @@ module.exports = function(member){
   let random = GetRandomString()
 
   let embed = new EmbedBuilder()
-  .setColor('78FF81')
+  .setColor(config.colors.welcome)
   .setDescription(`Welcome to **The Boy's House**! We ${random} please make sure to do the following:
   > \`✔\` Visit <#1028832715434377246> and <#1028832740889608232> for roles
   > \`✔\` Read our <#1028826091135189012>
