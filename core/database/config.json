@@ -1,0 +1,19 @@
+{
+  "ownerId": null,
+  "commands": {
+    "source-code": {
+      "disable": false
+    },
+    "warn": {
+      "disable": false,
+      "forceNotify": false,
+      "channel": "1029099924551372870",
+      "webhookId": "1038992658368049263"
+    }
+  },
+  "colors": {
+    "main.theme": "#B0A989",
+    "main.error": null,
+    "warn.modlogs": null
+  }
+}
