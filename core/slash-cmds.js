@@ -9,7 +9,7 @@ let guildId = '1028822464454729749'
 module.exports = async function(){
   let commands = await SetSlashCommands()
 
-  if(commands === false) return console.log(chalk.red('Error registering commands: Unable to register commands'))
+  if(commands === false) return
 
   commands = commands.map(command => command.toJSON());
 
@@ -17,8 +17,6 @@ module.exports = async function(){
   const rest = new REST({version: '9'}).setToken(token)
   
   rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
-
-  console.log(`${chalk.greenBright('Successfully')} registered ${chalk.blue('slash commands')}`)
 }
 
 function SetSlashCommands(){

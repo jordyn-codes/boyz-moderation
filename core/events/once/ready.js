@@ -3,8 +3,6 @@ module.exports = async function(client, chalk){
   global.chalk  = chalk
   global.database = require('easy-json-database')
   global.emojis = require('./../../database/emojis.json')
-    
-  console.log(`${chalk.blue('[LOGIN]')} Logged in as ${client.user.tag}`)
 
   //Host the server on express
   const express = require('express')
@@ -13,7 +11,7 @@ module.exports = async function(client, chalk){
   
   app.get('/', (req, res) => res.send(':)'));
   app.listen(port, () => {
-    console.log(`${chalk.blue('[HOSTING]')} Started hosting using express`)
+    debug('DEBUG', '[HOSTING] Hosted on web-server')
   });
 
   //Set the activity
@@ -23,11 +21,12 @@ module.exports = async function(client, chalk){
       type: ActivityType.Playing
     })
 
-    console.log(`${chalk.blue('[ACTIVITY]')} Set activity!`)
+    debug('DEBUG', '[ACTIVITY] Successfully set activity')
   } catch(error){
-    console.log(`${chalk.blue('[ACTIVITY]')} Error: ${error.message}`)
+    debug('ERROR', '[ACTIVITY] Error occurred while setting activity.')
   }
 
+  debug('INFO', '[AUTH] Logged in as ' + client.user.tag)
   //Create slash commands
   require('./../../functions/create-slash.js')()
 }

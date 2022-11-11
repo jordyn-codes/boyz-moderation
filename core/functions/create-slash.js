@@ -42,14 +42,36 @@ async function SetSlashCommands(){
     option.setName('dm')
     .setDescription('Message the user about the warning.'))
 
+
   const purge = new SlashCommandBuilder()
   .setName('purge')
   .setDescription('Mass-delete messages in the current, or specific server.')
-  .setIntegerOption(option=> 
+  .addIntegerOption(option=> 
     option.setName('amount')
     .setDescription('Amount of messages')
     .setRequired(true)   
   )
+  .addBooleanOption(option =>
+    option.setName('bots')
+    .setDescription('Also delete messages by bots')
+  )
+  .addBooleanOption(option =>
+    option.setName('webhooks')
+    .setDescription('Also delete webhook messages')
+  )
+  .addBooleanOption(option =>
+    option.setName('attachments')
+    .setDescription('Also delete messages with attachments')
+  ) 
+  .addBooleanOption(option =>
+    option.setName('embeds')
+    .setDescription('Also delete messages with embeds')
+  )
+  .addUserOption(option =>
+    option.setName('user')
+    .setDescription('An specific user to delete messages from')
+  )
+
   
   return [source, warn, purge]
 }

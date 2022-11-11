@@ -20,6 +20,15 @@
         "roles": [],
         "users": []
       }
+    },
+    "purge": {
+      "disable": false,
+      "defaults": {
+        "includeBots": true,
+        "includeWebhooks": true,
+        "includeFiles": true,
+        "includeEmbeds": true
+      }
     }
   },
   "colors": {

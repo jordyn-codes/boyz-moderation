@@ -14,16 +14,19 @@ module.exports = async function(interaction){
   
   /* Check certain values and sets defaults */
   if(command.disable === true){
+    debug('DEBUG', '[WARN] This command is disabled')
     interaction.reply({content: emojis.error + ' This command has been disabled!', ephemeral: true})
     return
   }
   if(command.forceNotify === true){
     //Forces the user to be notified regardless of the parameter
     notify = true
+    debug('DEBUG', '[WARN] Set "notify" to force value')
   }
   if(notify === null){
     //Sets the notify status to be default if none provided
     notify = command.defaultNotify
+     debug('DEBUG', '[WARN] Set "notify" to default')
   }
 
   /* Check blacklist status*/
@@ -34,13 +37,16 @@ module.exports = async function(interaction){
     command: command
   })
   if(!bl){
+    debug('ERROR', '[WARN] No value returned (check-bl)')
     interaction.reply({content: emojis.error + ' Oops, an unexpected error has occured. Please try again later.', ephemeral: true})
     return
   }
   if(bl.status === false){
     if(bl.reason === 1){
+      debug('DEBUG', '[WARN] Command disabled in channel')
       interaction.reply({content: emojis.error + ' You are not allowed to use this command in this channel!', ephemeral: true})
     } else {
+      debug('DEBUG', '[WARN] User is blacklisted')
       interaction.reply({content: emojis.error + " You are not allowed to use this command!", ephemeral: true})    
     }
   
@@ -57,6 +63,7 @@ module.exports = async function(interaction){
 
   /* Send an embed to the user */
   if(notify === true){
+    debug('DEBUG', 'Notifying the user on warn')
     user.send({embeds: [{
       title: "Warning Given",
       author: {
@@ -66,7 +73,7 @@ module.exports = async function(interaction){
       description: `You have been warned in The Boy\\'s House for an rule violation. Please make sure to re-read our rules, and Discord's [**Terms's of Service**](https://www.discord.com/terms) and discontinue violations.\n\n    The below reason has been provided by an moderator who has taken this action. To report issues, please contact an admin.\n    **Provided Reason**: ${reason}`,
       color: color 
     }]
-}).catch(error => {})
+}).catch(error => {debug('ERROR', 'Error occured when messaging user')})
   }
 
   const modlog = new EmbedBuilder()

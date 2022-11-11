@@ -9,7 +9,9 @@ const client = new Client({
   partials: [Partials.MessageContent]
 })
 
-console.log('Logging into the Developer Portal')
+global.debug = require('./core/functions/debug.js')
+debug('INFO', '[AUTH] Attempting connection')
+
 require('./core/events/.events.js')(client)
 
 client.login(process.env.token)

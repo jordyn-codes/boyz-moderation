@@ -6,7 +6,6 @@ module.exports = async function(data){
   let blacklists = command.blacklists
     
   if(!user||!channel||!roles||!command){
-    console.log(chalk.blue('[BLACKLISTING] [HUB]'), ' Could not find one of the required fields')
     return null
   }
   

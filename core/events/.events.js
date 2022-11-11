@@ -1,12 +1,10 @@
 module.exports = function(client){
   const chalk = require('chalk')
   
-  client.once('ready', () => {
-    console.log(`${chalk.blue('[EVENTS]')} Recieved ready event`)
+  client.once('ready', () => {    
     require('./once/ready.js')(client, chalk)
   })
-  client.on('interactionCreate', (interaction) => {
-    console.log(`${chalk.blue('[EVENTS]')} Recieved interaction event`)
+  client.on('interactionCreate', (interaction) => {  
     require('./constant/interactionCreate.js')(interaction)
   })
   client.on('guildMemberAdd', member => {

@@ -10,6 +10,7 @@ module.exports = async function(interaction){
 
   //Check if the command has been disabled
   if(command.disable === true){
+    debug('DEBUG', '[SOURCE] This command is disabled')
     interaction.reply({content: emojis.error + ' This command has been disabled!'})
     return
   }
@@ -22,13 +23,16 @@ module.exports = async function(interaction){
     command: command
   })
   if(bl === null){
+    debug('WARN', '[SOURCE] Did not return anything (check-bl)')
     interaction.reply({content: emojis.error + ' Oops, an unexpected error has occured. Please try again later.', ephemeral: true})
     return
   }
   if(bl.status === false){
     if(bl.reason === 1){
+      debug('DEBUG', '[SOURCE] Command is not allowed in the channel')
       interaction.reply({content: emojis.error + ' You are not allowed to use this command in this channel!', ephemeral: true})
     } else {
+      debug('DEBUG', '[SOURCE] User cannot use command')
       interaction.reply({content: emojis.error + " You are not allowed to use this command!", ephemeral: true})    
     }
   

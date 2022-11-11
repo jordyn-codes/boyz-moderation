@@ -1,7 +1,8 @@
 const {EmbedBuilder} = require('discord.js')
 
 module.exports = function(member){
-  let channel = client.channels.cache.get('1030474386035179561')
+  let channel = '1030474386035179561'
+  channel = client.channels.cache.get(channel)
   let random = GetRandomString()
 
   let embed = new EmbedBuilder()
